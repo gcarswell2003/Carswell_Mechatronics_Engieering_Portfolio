@@ -1,19 +1,20 @@
-# Gabriel Carswell Engineering Portfolio
+# Gabriel Carswell — Engineering Portfolio
 
-A buildless, responsive portfolio site. The deployable page lives at `dist/index.html`.
+A static portfolio published through GitHub Pages. The homepage is intentionally concise: a short introduction, the current Dodge senior design project, and a complete list of project case studies. Each project title opens its own breakdown page.
 
-## Updating the portfolio
+## Site structure
 
-Project summaries, roles, stages, milestone labels, and design-process entries are kept together in the `projects` array near the bottom of `dist/index.html`. Edit those fields to update the site. Entries marked `add details` are prompts for information to fill in; remove or replace those prompts before calling the portfolio complete.
+- `dist/index.html` — homepage and project index
+- `dist/styles.css` — shared site styling
+- `dist/projects/` — individual project pages
+- `.github/workflows/pages.yml` — deploys the `dist` folder to GitHub Pages
 
-## SolidWorks model previews
+## Updating a project
 
-The Dodge project includes a browser-based `.GLB` preview using Google's `<model-viewer>` component. The current control previews a locally selected file in the current browser session; it does not upload or retain it. To publish a model, add an approved, optimized GLB under `dist/models/` and reference that asset in the page. A GLB is for viewing and sharing, not an editable native SOLIDWORKS assembly.
+Edit the matching page under `dist/projects/`. Keep updates undated and organize them around project context, design decisions, progress, evidence, and next steps. Update the homepage project card if the summary or current milestone changes.
 
-SOLIDWORKS supports GLB and glTF import/export. For a single-file browser asset, use GLB.
+The Dodge project page includes a local GLB preview for SolidWorks exports. The selected model remains in the visitor's browser session and is not uploaded. To make a model viewable by everyone, add an approved `.glb` file to the repository and link it from the project page.
 
-## GitHub Pages
+## Deploying
 
-The included GitHub Actions workflow publishes `dist/` whenever code is pushed to `main`, or when the workflow is run manually. In the repository's **Settings → Pages**, set the build source to **GitHub Actions** if it is not already selected.
-
-Anything committed to this repository and published through GitHub Pages should be treated as public. Do not add confidential employer material, credentials, or files that you do not intend to share publicly.
+Push changes to `main`; the GitHub Actions workflow publishes `dist` to GitHub Pages.
